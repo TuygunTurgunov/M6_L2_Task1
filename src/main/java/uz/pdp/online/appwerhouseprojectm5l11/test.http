@@ -1,0 +1,10 @@
+PUT http://localhost:8080/api/measurement/59
+Content-Type: application/json
+
+{
+  "name": "c87878"
+}
+###
+http://localhost:8080/api/measurement
+
+###

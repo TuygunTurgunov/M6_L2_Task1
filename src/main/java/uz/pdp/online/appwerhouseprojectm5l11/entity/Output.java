@@ -1,0 +1,40 @@
+package uz.pdp.online.appwerhouseprojectm5l11.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.sql.Timestamp;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+public class Output {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+
+    @CreationTimestamp
+    private Timestamp dateWithTime;
+
+    @ManyToOne
+    private Warehouse warehouse;
+
+    @ManyToOne
+    private Client client;
+
+    @ManyToOne
+    private Currency currency;
+
+    private String factureNumber;
+
+    @NotNull(message = "code not be null value")
+    @Column(nullable = false, unique = true)
+    private String code;
+
+}
